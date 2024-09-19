@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程评价论坛</title>
+</head>
+<body>
+    <h1>课程评价论坛</h1>
+    <a href="{{ url_for('post_review') }}">发表评价</a>
+    <a href="{{ url_for('search') }}">搜索评价</a>
+    <h2>最新评价</h2>
+    {% for review in reviews %}
+        <div>
+            <h3>{{ review.course_name }}</h3>
+            <p>{{ review.content }}</p>
+            <small>发表于: {{ review.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+            <form action="{{ url_for('delete_review', review_id=review.id) }}" method="POST">
+                <input type="submit" value="删除" onclick="return confirm('确定要删除这条评价吗？');">
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>

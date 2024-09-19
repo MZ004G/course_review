@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发表评价</title>
+</head>
+<body>
+    <h1>发表评价</h1>
+    <form method="POST">
+        <label for="course_name">课程名称:</label>
+        <input type="text" id="course_name" name="course_name" required>
+        <br>
+        <label for="content">评价内容:</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <input type="submit" value="发表">
+    </form>
+    <a href="{{ url_for('home') }}">返回首页</a>
+</body>
+</html>
